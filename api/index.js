@@ -3,6 +3,11 @@ const cors = require('cors');
 const https = require('https');
 const fs = require('fs');
 
+/**
+openssl req -x509 -newkey rsa:2048 -keyout keytmp.pem -out cert.pem -days 365
+openssl rsa -in keytmp.pem -out key.pem
+nvm, node --watch
+ */
 const app = express();
 
 const corsOptions = {
