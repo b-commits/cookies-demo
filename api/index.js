@@ -20,13 +20,11 @@ const options = {
   cert: fs.readFileSync('./cert.pem'),
 };
 
-https.createServer(options, app).listen(3000, () => {
-  console.log(`Server is running on https://localhost:3000`);
-});
+https.createServer(options, app).listen(3000, () => {});
 
 app.use(cors(corsOptions));
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
   res.setHeader('set-cookie', ['sessId=123;SameSite=None;secure=true']);
   res.send('hello world');
 });
